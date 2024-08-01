@@ -1,15 +1,18 @@
 plugins {
     alias(libs.plugins.androidLibrary)
     alias(libs.plugins.jetbrainsKotlinAndroid)
+    alias(libs.plugins.kotlinxSerialization)
     alias(libs.plugins.compose.compiler)
 }
 
 android {
-    namespace = "bakuen.wear.components"
+    namespace = "bakuen.lib.protostore"
     compileSdk = 34
 
     defaultConfig {
         minSdk = 21
+
+        testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
         consumerProguardFiles("consumer-rules.pro")
     }
 
@@ -34,6 +37,5 @@ android {
 dependencies {
     implementation(platform(libs.androidx.compose.bom))
     implementation(libs.androidx.compose.ui)
-    implementation(libs.androidx.compose.foundation)
-    implementation(libs.androidx.compose.animation)
+    api(libs.kotlinx.serialization.protobuf)
 }

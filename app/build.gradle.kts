@@ -2,6 +2,8 @@ apply("./secret.gradle.kts")
 plugins {
     alias(libs.plugins.androidApplication)
     alias(libs.plugins.jetbrainsKotlinAndroid)
+    alias(libs.plugins.kotlinxSerialization)
+    alias(libs.plugins.compose.compiler)
 }
 
 android {
@@ -75,6 +77,7 @@ dependencies {
     implementation(libs.androidx.compose.ui.tooling.preview)
     implementation(project(":lib-components"))
     implementation(project(":lib-navigator"))
+    implementation(project(":lib-protostore"))
     /*
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)

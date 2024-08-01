@@ -3,6 +3,7 @@ package inch.cg.webview
 import android.annotation.SuppressLint
 import android.webkit.JavascriptInterface
 import com.tencent.smtt.export.external.interfaces.WebResourceRequest
+import com.tencent.smtt.sdk.CookieManager
 import com.tencent.smtt.sdk.WebView
 import com.tencent.smtt.sdk.WebViewClient
 import inch.cg.appContext
@@ -33,7 +34,12 @@ object WebView {
                 p0.loadUrl(p1.url.toString())
                 return false
             }
+
+            override fun onPageFinished(p0: WebView?, p1: String?) {
+                CookieManager.getInstance().flush()
+            }
         }
+        CookieManager.getInstance().acceptThirdPartyCookies(this)
         loadUrl("https://cg.163.com/#/mobile")
     }
 

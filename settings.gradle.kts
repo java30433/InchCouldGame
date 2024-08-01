@@ -23,3 +23,4 @@ rootProject.name = "InchCouldGame"
 include(":app")
 include(":lib-navigator")
 include(":lib-components")
+include(":lib-protostore")

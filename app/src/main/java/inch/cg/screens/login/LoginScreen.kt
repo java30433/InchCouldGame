@@ -14,7 +14,7 @@ private class State()
 private sealed class Event {}
 @OptIn(ExperimentalFoundationApi::class)
 @Composable
-fun LoginScreenUI() {
+fun LoginScreen() {
     val accountFieldState = rememberTextFieldState()
     val pwdFieldState = rememberTextFieldState()
     Column(verticalArrangement = Arrangement.spacedBy(6.dp)) {
